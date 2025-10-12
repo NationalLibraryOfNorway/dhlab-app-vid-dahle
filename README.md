@@ -69,6 +69,16 @@ The app will be available at: `https://nationallibraryofnorway.github.io/dhlab-a
 - Static assets (images, data) must be in the `public/` directory
 - The `gh-pages` branch is automatically managed - do not edit it manually
 
+## Data Overview
+
+**Important Note about Cards vs. Records:**
+- The collection contains **4,144 unique physical card images**
+- These cards catalog **4,507 individual book records**
+- Some cards contain multiple books (e.g., different editions of the same work)
+- Each record in the data references its corresponding card image via the card ID
+
+This one-to-many relationship means you'll see the same card image displayed for multiple search results when that card catalogs more than one book.
+
 ## Data Setup
 
 The application expects the following data structure:
