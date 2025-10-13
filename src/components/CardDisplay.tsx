@@ -53,6 +53,10 @@ export const CardDisplay: React.FC<CardDisplayProps> = ({ card }) => {
                                 </p>
                             )}
                         </div>
+                        <div className="card-footer bg-light text-muted small">
+                            <strong>Card ID:</strong> {card.id}
+                            {card.record_no && <span className="ms-3"><strong>Record:</strong> {card.record_no}</span>}
+                        </div>
                     </div>
                 </div>
             </div>

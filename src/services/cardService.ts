@@ -20,6 +20,7 @@ export const cardService = {
             // Transform the data to match our Card interface
             cardsCache = data.map((item: any) => ({
                 id: item.id.replace('OCR', ''), // Remove OCR from the ID
+                record_no: item.record_no || '',
                 model: item.model,
                 codes: Array.isArray(item.codes) ? item.codes.join(', ') : item.codes,
                 tall_final: item.tall_final || '',

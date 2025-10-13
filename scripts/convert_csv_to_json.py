@@ -69,8 +69,16 @@ def convert_csv_to_json():
         else:
             tall_final_val = str(tall_final_val) if tall_final_val else ''
         
+        # Clean record_no value
+        record_no_val = row.get('record_no', '')
+        if isinstance(record_no_val, float):
+            record_no_val = str(int(record_no_val)) if not pd.isna(record_no_val) else ''
+        else:
+            record_no_val = str(record_no_val) if record_no_val else ''
+        
         record = {
             "id": str(row.get('doc_id', '')).replace('OCR', ''),  # Remove OCR suffix
+            "record_no": record_no_val,  # Record number on the card
             "codes": codes,
             "tall_final": tall_final_val,  # Classification description
             "title": str(row.get('title', '')),
