@@ -47,21 +47,56 @@ export const cardService = {
         }
     },
 
-    async searchCards(searchTerm: string): Promise<Card[]> {
-        console.log('Searching with term:', searchTerm);
+    async searchCards(
+        searchTerm: string,
+        searchField: 'all' | 'title' | 'author' | 'place' | 'subject' = 'all',
+        maxResults: number = 200
+    ): Promise<Card[]> {
+        console.log('Searching with term:', searchTerm, 'in field:', searchField);
         const cards = await this.getCards();
+        
         if (!searchTerm) {
-            console.log('No search term, returning all cards');
-            return cards;
+            console.log('No search term, returning first', maxResults, 'cards');
+            return cards.slice(0, maxResults);
         }
 
         const term = searchTerm.toLowerCase();
-        const filtered = cards.filter(card => 
-            card.author_normalized.toLowerCase().includes(term) ||
-            card.title.toLowerCase().includes(term)
-        );
-        console.log('Found matches:', filtered.length);
-        return filtered;
+        let filtered: Card[] = [];
+
+        switch (searchField) {
+            case 'title':
+                filtered = cards.filter(card => 
+                    card.title.toLowerCase().includes(term)
+                );
+                break;
+            case 'author':
+                filtered = cards.filter(card => 
+                    card.author_normalized.toLowerCase().includes(term)
+                );
+                break;
+            case 'place':
+                filtered = cards.filter(card => 
+                    card.place_modernized.toLowerCase().includes(term)
+                );
+                break;
+            case 'subject':
+                filtered = cards.filter(card => 
+                    card.notes.toLowerCase().includes(term)
+                );
+                break;
+            case 'all':
+            default:
+                filtered = cards.filter(card => 
+                    card.title.toLowerCase().includes(term) ||
+                    card.author_normalized.toLowerCase().includes(term) ||
+                    card.place_modernized.toLowerCase().includes(term) ||
+                    card.notes.toLowerCase().includes(term)
+                );
+                break;
+        }
+
+        console.log('Found matches:', filtered.length, '(limiting to', maxResults, ')');
+        return filtered.slice(0, maxResults);
     },
 
     getCardImageUrl(cardId: string): string {
