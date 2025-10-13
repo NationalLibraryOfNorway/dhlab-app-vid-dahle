@@ -3,6 +3,7 @@ export type ModelType = 'llama' | 'anthropic';
 export interface Card {
     id: string;
     codes: string;
+    tall_final: string;  // Classification description
     title: string;
     author: string;
     author_normalized: string;
@@ -15,5 +16,7 @@ export interface Card {
     edition: string;
     notes: string;
     model: ModelType;
+    latitude: number | string;  // For future map visualization
+    longitude: number | string;  // For future map visualization
 }
 

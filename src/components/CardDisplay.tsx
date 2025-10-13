@@ -40,9 +40,11 @@ export const CardDisplay: React.FC<CardDisplayProps> = ({ card }) => {
                                     {card.edition && <span> ({card.edition})</span>}
                                 </p>
                             )}
-                            {card.codes && (
+                            {(card.codes || card.tall_final) && (
                                 <p className="card-text mb-2">
-                                    <strong>Subject:</strong> <span className="badge bg-secondary">{card.codes}</span>
+                                    <strong>Classification:</strong>{' '}
+                                    {card.codes && <span className="badge bg-secondary me-2">{card.codes}</span>}
+                                    {card.tall_final && <span className="text-muted">{card.tall_final}</span>}
                                 </p>
                             )}
                             {card.notes && (

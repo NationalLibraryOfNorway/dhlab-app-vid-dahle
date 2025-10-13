@@ -62,9 +62,17 @@ def convert_csv_to_json():
         else:
             year_val = str(year_val) if year_val else ''
         
+        # Clean tall_final values - remove .0 from floats
+        tall_final_val = row.get('tall_final', '')
+        if isinstance(tall_final_val, float):
+            tall_final_val = str(int(tall_final_val)) if not pd.isna(tall_final_val) else ''
+        else:
+            tall_final_val = str(tall_final_val) if tall_final_val else ''
+        
         record = {
             "id": str(row.get('doc_id', '')).replace('OCR', ''),  # Remove OCR suffix
             "codes": codes,
+            "tall_final": tall_final_val,  # Classification description
             "title": str(row.get('title', '')),
             "author": str(row.get('author', '')),
             "author_normalized": str(row.get('norm_author', '')),
@@ -77,7 +85,7 @@ def convert_csv_to_json():
             "edition": str(row.get('edition', '')),
             "notes": str(row.get('Beskrivelse', '')),  # Use Beskrivelse as notes
             "model": model,
-            # Optional: include lat/lon if needed
+            # Include lat/lon for future map visualization
             "latitude": row.get('lat', ''),
             "longitude": row.get('lon', '')
         }

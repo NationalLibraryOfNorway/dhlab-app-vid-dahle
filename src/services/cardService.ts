@@ -22,6 +22,7 @@ export const cardService = {
                 id: item.id.replace('OCR', ''), // Remove OCR from the ID
                 model: item.model,
                 codes: Array.isArray(item.codes) ? item.codes.join(', ') : item.codes,
+                tall_final: item.tall_final || '',
                 title: item.title,
                 author: item.author,
                 author_normalized: item.author_normalized,
@@ -32,7 +33,9 @@ export const cardService = {
                 year: item.year,
                 year_end: item.year_end,
                 edition: item.edition,
-                notes: item.notes
+                notes: item.notes,
+                latitude: item.latitude || '',
+                longitude: item.longitude || ''
             }));
 
             console.log('Loaded cards:', cardsCache.length);
