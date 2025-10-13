@@ -27,11 +27,40 @@ export const CardSearch: React.FC = () => {
     };
 
     return (
-        <div className="container-fluid py-4">
-            <div className="text-center mb-4">
-                <h1 className="display-4">Vid Dahle Library Cards</h1>
-                <p className="lead">Search and explore digitized library cards from the National Library of Norway</p>
+        <>
+            <div className="app-header">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-md-2 text-center">
+                            <img 
+                                src={`${process.env.PUBLIC_URL}/images/db-kort.jpg`} 
+                                alt="Card Catalogue" 
+                                className="catalogue-image img-fluid"
+                            />
+                        </div>
+                        <div className="col-md-7 text-center">
+                            <h1 className="display-4">Lars Dahle's Book Collection</h1>
+                            <p className="lead">Explore the catalogue of Dahle's Library</p>
+                        </div>
+                        <div className="col-md-3 d-flex justify-content-end align-items-center">
+                            <div className="logos-container flex-column">
+                                <img 
+                                    src={`${process.env.PUBLIC_URL}/images/vid-logo.png`} 
+                                    alt="VID Logo" 
+                                    className="logo-img mb-3"
+                                />
+                                <img 
+                                    src={`${process.env.PUBLIC_URL}/images/nb-logo.png`} 
+                                    alt="National Library of Norway Logo" 
+                                    className="logo-img"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            <div className="container-fluid py-4">
             
             <div className="row mb-4 justify-content-center">
                 <div className="col-md-8">
@@ -76,7 +105,8 @@ export const CardSearch: React.FC = () => {
                     </div>
                 )}
             </div>
-        </div>
+            </div>
+        </>
     );
 };
 
