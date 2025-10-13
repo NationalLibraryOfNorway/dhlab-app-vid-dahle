@@ -205,11 +205,42 @@ For issues or questions:
   - Commit: e9d079e "Add classification numbers and geo-coordinates for future map visualization"
   - All changes deployed to repository
 
+### October 13, 2025 - Advanced Search Implementation
+
+- ✅ **Enhanced search interface**
+  - Added field selector dropdown: All fields, Title, Author, Place, Subject
+  - Smart placeholders that change based on selected field
+  - Cleaner two-column layout (selector + search bar)
+
+- ✅ **Field-specific search capabilities**
+  - **All fields**: Searches across title, author, place, and subject descriptions
+  - **Title**: Search in book titles
+  - **Author**: Search in normalized author names (renset forfatter)
+  - **Place**: Search in modernized publication places (forlenget utgivelsessted)
+  - **Subject**: Search in classification descriptions (Beskrivelse/notes)
+
+- ✅ **Result management**
+  - Implemented 200 result limit to prevent UI overload
+  - Shows "(limited to 200 results)" indicator when limit is hit
+  - Optimized performance for large result sets
+
+- ✅ **Subject search examples**
+  - "Indogermanske språk [-> Indoeuropeiske språk]"
+  - "Norsk misjon - Det Norske Misjonsselskap"
+  - "Medisin og helse"
+  - "Bibelkunnskap, hermeneutikk"
+
+- ✅ **Committed and deployed**
+  - Commit: 74dfe12 "Add advanced search with field-specific filters"
+  - Successfully deployed to GitHub Pages
+  - Build size: 62.7 KB JS (gzipped)
+
 ### Status
-- ✅ App is live and functional
-- ✅ All 4,507 records searchable
+- ✅ App is live and functional at https://nationallibraryofnorway.github.io/dhlab-app-vid-dahle/
+- ✅ All 4,507 records searchable with advanced filters
 - ✅ All 4,144 images accessible
 - ✅ PWA installable
 - ✅ Classification system fully integrated
+- ✅ Field-specific search (Title, Author, Place, Subject)
 - 🚧 Map visualization (data ready, tab pending)
-- 🔄 UI refinements pending (banner, card layout) 
+- 🚧 Tab navigation pending (Browse, Subjects, Map, Graphs, About) 
