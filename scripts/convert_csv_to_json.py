@@ -55,6 +55,13 @@ def convert_csv_to_json():
         # For now, we'll default to 'llama' or you can add logic to determine it
         model = 'llama'  # Change this if you have a way to determine the model
         
+        # Clean year values - remove .0 from floats
+        year_val = row.get('year', '')
+        if isinstance(year_val, float):
+            year_val = str(int(year_val)) if not pd.isna(year_val) else ''
+        else:
+            year_val = str(year_val) if year_val else ''
+        
         record = {
             "id": str(row.get('doc_id', '')).replace('OCR', ''),  # Remove OCR suffix
             "codes": codes,
@@ -64,9 +71,9 @@ def convert_csv_to_json():
             "place": str(row.get('place', '')),
             "place_normalized": str(row.get('norm_place', '')),
             "place_modernized": str(row.get('modern_place', '')),
-            "publication_year": str(row.get('year', '')),
-            "year": str(row.get('year', '')),
-            "year_end": str(row.get('year', '')),  # Use same as year if no year_end
+            "publication_year": year_val,
+            "year": year_val,
+            "year_end": year_val,  # Use same as year if no year_end
             "edition": str(row.get('edition', '')),
             "notes": str(row.get('Beskrivelse', '')),  # Use Beskrivelse as notes
             "model": model,
