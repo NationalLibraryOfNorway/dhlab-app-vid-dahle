@@ -1,5 +1,5 @@
 // Service worker for PWA functionality with proper cache versioning
-const CACHE_VERSION = 'v3'; // Increment this when deploying updates
+const CACHE_VERSION = 'v4'; // Increment this when deploying updates
 const CACHE_NAME = `vid-dahle-${CACHE_VERSION}`;
 
 self.addEventListener('install', (event) => {
