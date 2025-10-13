@@ -177,9 +177,39 @@ For issues or questions:
    - Finalize collaboration details
    - Update any remaining text
 
+### October 13, 2025 - Classification Numbers and Geo-coordinates Added
+
+- ✅ **Enhanced data conversion**
+  - Added `tall_final` field to capture classification numbers (internal library system)
+  - Included `latitude` and `longitude` for all records with place data
+  - Cleaned number formatting: removed `.0` suffix from both years and classification numbers
+  - Regenerated `cards.json` with complete metadata (4,507 records, 2.3 MB)
+
+- ✅ **Updated TypeScript interfaces**
+  - Added `tall_final: string` to Card interface
+  - Added `latitude` and `longitude` fields for future map visualization
+  - Updated cardService to map new fields from JSON
+
+- ✅ **Improved card display**
+  - Changed "Subject" to "Classification" for clarity
+  - Now displays both classification code (badge) and number when available
+  - Example: `[ST] 20` or `[HO] 92`
+  - Authentic to source: empty fields indicate original card had no classification
+
+- ✅ **Data integrity maintained**
+  - Classification numbers shown only when present on original cards
+  - Users can see where data is missing, maintaining fidelity to source material
+  - Geo-coordinates stored for future map tab (not yet displayed)
+
+- ✅ **Committed and pushed**
+  - Commit: e9d079e "Add classification numbers and geo-coordinates for future map visualization"
+  - All changes deployed to repository
+
 ### Status
 - ✅ App is live and functional
 - ✅ All 4,507 records searchable
 - ✅ All 4,144 images accessible
 - ✅ PWA installable
+- ✅ Classification system fully integrated
+- 🚧 Map visualization (data ready, tab pending)
 - 🔄 UI refinements pending (banner, card layout) 
