@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dhlab-app-vid-dahle/static/css/main.4a94049c.css",
-    "main.js": "/dhlab-app-vid-dahle/static/js/main.8c6af5b2.js",
+    "main.css": "/dhlab-app-vid-dahle/static/css/main.89cb6a13.css",
+    "main.js": "/dhlab-app-vid-dahle/static/js/main.dbc1e980.js",
     "static/js/453.339494fd.chunk.js": "/dhlab-app-vid-dahle/static/js/453.339494fd.chunk.js",
     "index.html": "/dhlab-app-vid-dahle/index.html",
-    "main.4a94049c.css.map": "/dhlab-app-vid-dahle/static/css/main.4a94049c.css.map",
-    "main.8c6af5b2.js.map": "/dhlab-app-vid-dahle/static/js/main.8c6af5b2.js.map",
+    "main.89cb6a13.css.map": "/dhlab-app-vid-dahle/static/css/main.89cb6a13.css.map",
+    "main.dbc1e980.js.map": "/dhlab-app-vid-dahle/static/js/main.dbc1e980.js.map",
     "453.339494fd.chunk.js.map": "/dhlab-app-vid-dahle/static/js/453.339494fd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a94049c.css",
-    "static/js/main.8c6af5b2.js"
+    "static/css/main.89cb6a13.css",
+    "static/js/main.dbc1e980.js"
   ]
 }
