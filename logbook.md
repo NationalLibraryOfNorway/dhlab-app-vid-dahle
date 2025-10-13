@@ -235,6 +235,30 @@ For issues or questions:
   - Successfully deployed to GitHub Pages
   - Build size: 62.7 KB JS (gzipped)
 
+### October 13, 2025 - Service Worker Caching Fix
+
+- ✅ **Fixed stale cache issue**
+  - Issue: Online version showed old results when changing search fields
+  - Root cause: Service worker was caching old JavaScript files without versioning
+  
+- ✅ **Service worker improvements**
+  - Added cache versioning system (CACHE_VERSION = 'v3')
+  - Implemented automatic old cache cleanup on activation
+  - Network-first strategy for JS/CSS files (always fetch latest)
+  - Cache-first strategy for images and data (better performance)
+  - Added skipWaiting() for immediate activation
+  - Added clients.claim() to take control immediately
+  
+- ✅ **Service worker registration**
+  - Registered service worker in index.tsx
+  - Added periodic update checks (every 60 seconds)
+  - Proper error handling and logging
+  
+- ✅ **Committed and deployed**
+  - Commit: 3ea6522 "Fix service worker caching issue with proper versioning"
+  - Successfully deployed to GitHub Pages
+  - Build size: 62.82 KB JS (gzipped)
+
 ### Status
 - ✅ App is live and functional at https://nationallibraryofnorway.github.io/dhlab-app-vid-dahle/
 - ✅ All 4,507 records searchable with advanced filters
