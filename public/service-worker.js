@@ -3,23 +3,18 @@ const CACHE_VERSION = 'v3'; // Increment this when deploying updates
 const CACHE_NAME = `vid-dahle-${CACHE_VERSION}`;
 
 self.addEventListener('install', (event) => {
-  console.log('Service Worker installing version:', CACHE_VERSION);
   // Force the waiting service worker to become the active service worker
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker activating version:', CACHE_VERSION);
   event.waitUntil(
     // Clear old caches
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames
           .filter((cacheName) => cacheName.startsWith('vid-dahle-') && cacheName !== CACHE_NAME)
-          .map((cacheName) => {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          })
+          .map((cacheName) => caches.delete(cacheName))
       );
     }).then(() => {
       // Take control of all clients immediately

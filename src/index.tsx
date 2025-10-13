@@ -20,15 +20,13 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker
       .register(`${process.env.PUBLIC_URL}/service-worker.js`)
       .then((registration) => {
-        console.log('Service Worker registered successfully:', registration);
-        
         // Check for updates periodically
         setInterval(() => {
           registration.update();
         }, 60000); // Check every minute
       })
       .catch((error) => {
-        console.log('Service Worker registration failed:', error);
+        console.error('Service Worker registration failed:', error);
       });
   });
 }
